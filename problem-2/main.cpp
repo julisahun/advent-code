@@ -4,7 +4,7 @@
 #include <sstream>
 #include <set>
 
-bool is_valid(int number) {
+bool is_valid(unsigned long long number) {
   std::string num_str = std::to_string(number);
   if (num_str.length() % 2 == 1) return true;
   int middle = num_str.length() / 2;
@@ -14,7 +14,7 @@ bool is_valid(int number) {
 }
 
 int main() {
-  long long sum = 0;
+  unsigned long long sum = 0;
   std::string line;
   std::getline(std::cin, line);
   std::stringstream ss(line);
@@ -24,9 +24,9 @@ int main() {
     if (dash_pos != std::string::npos) {
       std::string start_str = range.substr(0, dash_pos);
       std::string end_str = range.substr(dash_pos + 1);
-      long long start = std::stoll(start_str);
-      long long end = std::stoll(end_str);
-      for (long long i = start; i <= end; ++i) {
+      unsigned long long start = std::stoll(start_str);
+      unsigned long long end = std::stoll(end_str);
+      for (unsigned long long i = start; i <= end; ++i) {
         if (!is_valid(i)) {
           std::cout << "Invalid number: " << std::to_string(i) << std::endl;
           sum += i;
